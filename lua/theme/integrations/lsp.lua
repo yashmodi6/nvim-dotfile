@@ -18,5 +18,6 @@ return function(colors, theme)
     LspReferenceWrite = { bg = colors.one_bg3 },
     LspSignatureActiveParameter = { fg = colors.blue, bold = true },
     LspInlayHint = { bg = colors.black2, fg = colors.light_grey },
+    DiagnosticUnnecessary = { fg = colors.grey_fg },
   }
 end

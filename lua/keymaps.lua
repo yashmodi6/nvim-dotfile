@@ -21,14 +21,8 @@ end, { desc = "Close buffer" })
 map("n", "<C-n>", function()
   Snacks.explorer()
 end, { desc = "Open file explorer" })
-map("n", "<leader>e", function()
-  Snacks.explorer()
-end, { desc = "Toggle file explorer" })
 
 -- Terminal
-map({ "n", "t" }, "<C-/>", function()
-  Snacks.terminal()
-end, { desc = "Toggle floating terminal" })
 map("n", "<leader>tt", function()
   Snacks.terminal()
 end, { desc = "Toggle floating terminal" })
@@ -62,6 +56,10 @@ map("n", "<leader>th", function()
   require("theme").select()
 end, { desc = "Theme switcher" })
 
+map("n", "<leader>td", function()
+  Snacks.toggle.dim():toggle()
+end, { desc = "Toggle focus dimming" })
+
 -- Folding
 map("n", "<leader>z", "za", { desc = "Toggle fold" })
 map("n", "zR", function()
@@ -70,7 +68,7 @@ end, { desc = "Open all folds" })
 map("n", "zM", function()
   require("ufo").closeAllFolds()
 end, { desc = "Close all folds" })
-map("n", "K", function()
+map("n", "zP", function()
   local winid = require("ufo").peekFoldedLinesUnderCursor()
   if not winid then
     vim.lsp.buf.hover()
@@ -111,11 +109,7 @@ end, { desc = "Show line error details" })
 -- Code runner
 local runners = {
   python = "python3 %s",
-  lua = "nvim -l %s",
-  sh = "bash %s",
   bash = "bash %s",
-  javascript = "node %s",
-  typescript = "tsx %s",
   c = "gcc %s -o /tmp/a.out && /tmp/a.out",
   cpp = "g++ %s -o /tmp/a.out && /tmp/a.out",
   rust = "cargo run",
@@ -136,4 +130,3 @@ local function run_file()
 end
 
 map("n", "<leader>cr", run_file, { desc = "Run current file" })
-map("n", "<leader>rc", run_file, { desc = "Run current file" })

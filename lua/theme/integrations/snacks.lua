@@ -22,5 +22,6 @@ return function(colors, _)
     SnacksStatusColumnMark = { fg = colors.purple },
     SnacksIndent = { fg = colors.line },
     SnacksIndentScope = { fg = colors.grey },
+    SnacksDim = { fg = colors.grey_fg },
   }
 end

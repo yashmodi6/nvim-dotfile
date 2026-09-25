@@ -9,6 +9,14 @@ return {
     animate = { enabled = false },
     scroll = { enabled = false },
     bigfile = { enabled = true },
+    dim = {
+      animate = { enabled = false },
+      scope = {
+        min_size = 5,
+        max_size = 40,
+        siblings = true,
+      },
+    },
     picker = {
       enabled = true,
       icons = {

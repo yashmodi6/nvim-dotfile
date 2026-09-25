@@ -1,0 +1,51 @@
+return function(colors, theme)
+  return {
+    Normal = { fg = theme.base05, bg = theme.base00 },
+    NormalFloat = { bg = colors.darker_black },
+    FloatBorder = { fg = colors.blue },
+    FloatTitle = { fg = colors.white, bg = colors.grey },
+    WinSeparator = { fg = colors.line },
+    Cursor = { fg = theme.base00, bg = theme.base05 },
+    CursorLine = { bg = colors.black2 },
+    CursorColumn = { bg = theme.base01 },
+    ColorColumn = { bg = colors.black2 },
+    CursorLineNr = { fg = colors.white },
+    LineNr = { fg = colors.grey },
+    SignColumn = { fg = theme.base03 },
+    FoldColumn = { fg = theme.base0F, bg = "none" },
+    Folded = { fg = colors.light_grey, bg = colors.black2 },
+
+    Pmenu = { bg = colors.one_bg },
+    PmenuSbar = { bg = colors.one_bg },
+    PmenuSel = { bg = colors.pmenu_bg, fg = colors.black },
+    PmenuThumb = { bg = colors.grey },
+
+    MatchWord = { bg = colors.grey, fg = colors.white },
+    MatchParen = { link = "MatchWord" },
+    Comment = { fg = colors.grey_fg },
+
+    Search = { fg = theme.base01, bg = theme.base0A },
+    IncSearch = { fg = theme.base01, bg = theme.base09 },
+    Substitute = { fg = theme.base01, bg = theme.base0A },
+    Visual = { bg = theme.base02 },
+    VisualNOS = { fg = theme.base08 },
+
+    Error = { fg = theme.base00, bg = theme.base08 },
+    ErrorMsg = { fg = theme.base08, bg = theme.base00 },
+    WarningMsg = { fg = theme.base08 },
+    Question = { fg = theme.base0D },
+    Title = { fg = theme.base0D },
+    ModeMsg = { fg = theme.base0B },
+    MoreMsg = { fg = theme.base0B },
+    NonText = { fg = theme.base03 },
+    SpecialKey = { fg = theme.base03 },
+    Directory = { fg = theme.base0D },
+    Conceal = { bg = "NONE" },
+    QuickFixLine = { bg = theme.base01 },
+
+    Added = { fg = colors.green },
+    Removed = { fg = colors.red },
+    Changed = { fg = colors.yellow },
+    healthSuccess = { bg = colors.green, fg = colors.black },
+  }
+end

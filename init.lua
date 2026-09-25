@@ -32,6 +32,9 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
       vim.schedule(function()
         vim.api.nvim_exec_autocmds("User", { pattern = "FilePost", modeline = false })
         vim.api.nvim_exec_autocmds("FileType", {})
+        pcall(function()
+          require("statusline").autocmds()
+        end)
       end)
     end
   end,

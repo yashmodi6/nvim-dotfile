@@ -36,8 +36,15 @@ return {
       animate = { enabled = false },
     },
     words = { enabled = true },
-    terminal = { enabled = true },
-    quickfile = { enabled = false },
+    terminal = {
+      enabled = true,
+      win = {
+        position = "float",
+        border = "single",
+        height = 0.8,
+        width = 0.8,
+      },
+    },
     statuscolumn = {
       enabled = true,
       folds = { open = true },

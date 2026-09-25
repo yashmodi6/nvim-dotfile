@@ -31,6 +31,7 @@ opt.termguicolors = true
 opt.showmode = false
 opt.ruler = false
 opt.shortmess:append "sI"
+opt.statusline = "%!v:lua.require('statusline').generate()"
 
 opt.fillchars = {
   eob = " ",

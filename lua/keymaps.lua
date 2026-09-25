@@ -103,6 +103,37 @@ end, { desc = "Rename symbol" })
 map("n", "<leader>ca", function()
   vim.lsp.buf.code_action()
 end, { desc = "Code actions" })
+map("n", "<leader>cv", "<cmd>VenvSelect<cr>", { desc = "Select virtual environment" })
 map("n", "<leader>d", function()
   vim.diagnostic.open_float()
 end, { desc = "Show line error details" })
+
+-- Code runner
+local runners = {
+  python = "python3 %s",
+  lua = "nvim -l %s",
+  sh = "bash %s",
+  bash = "bash %s",
+  javascript = "node %s",
+  typescript = "tsx %s",
+  c = "gcc %s -o /tmp/a.out && /tmp/a.out",
+  cpp = "g++ %s -o /tmp/a.out && /tmp/a.out",
+  rust = "cargo run",
+  go = "go run %s",
+}
+
+local function run_file()
+  vim.cmd "silent! write"
+  local ft = vim.bo.filetype
+  local cmd_fmt = runners[ft]
+  if not cmd_fmt then
+    vim.notify("No runner configured for filetype: " .. ft, vim.log.levels.WARN)
+    return
+  end
+  local file = vim.fn.expand "%:p"
+  local cmd = cmd_fmt:find "%%s" and string.format(cmd_fmt, file) or cmd_fmt
+  Snacks.terminal(cmd)
+end
+
+map("n", "<leader>cr", run_file, { desc = "Run current file" })
+map("n", "<leader>rc", run_file, { desc = "Run current file" })

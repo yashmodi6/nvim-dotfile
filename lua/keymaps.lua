@@ -7,6 +7,11 @@ map("n", ";", ":", { desc = "Enter command mode" })
 map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
+map({ "n", "v" }, "<C-a>", function()
+  local view = vim.fn.winsaveview()
+  vim.cmd "%y+"
+  vim.fn.winrestview(view)
+end, { desc = "Copy active buffer" })
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down (visual line)", expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up (visual line)", expr = true, silent = true })
 
@@ -39,6 +44,9 @@ map("n", "<leader>sh", "<cmd>split<CR>", { desc = "Split window horizontally" })
 map("n", "<leader>se", "<C-w>=", { desc = "Equalize window sizes" })
 map("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split window" })
 map("n", "<leader>so", "<cmd>only<CR>", { desc = "Close other split windows" })
+map("n", "<leader>sm", function()
+  Snacks.zen.zoom()
+end, { desc = "Toggle maximize split" })
 
 -- -----------------------------------------------------------------------------
 -- Buffer Management (<leader>b)

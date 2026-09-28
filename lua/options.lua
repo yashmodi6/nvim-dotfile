@@ -13,6 +13,8 @@ opt.relativenumber = true
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.scrolloff = 8
+opt.smoothscroll = true
+opt.virtualedit = "block"
 opt.signcolumn = "yes"
 
 -- Indentation
@@ -27,6 +29,7 @@ opt.breakindent = true
 -- Search
 opt.ignorecase = true
 opt.smartcase = true
+opt.inccommand = "split"
 
 -- Appearance
 opt.termguicolors = true
@@ -65,3 +68,4 @@ opt.redrawtime = 1500
 opt.undofile = true
 opt.swapfile = false
 opt.mouse = "a"
+opt.confirm = true

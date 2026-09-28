@@ -24,6 +24,16 @@ return {
       on_init = on_init,
     })
 
+    vim.lsp.config("basedpyright", {
+      settings = {
+        basedpyright = {
+          analysis = {
+            typeCheckingMode = "standard",
+          },
+        },
+      },
+    })
+
     vim.lsp.enable { "basedpyright", "ruff" }
   end,
 }

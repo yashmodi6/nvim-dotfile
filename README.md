@@ -81,7 +81,6 @@ Cold startup times:
 
 * **Bytecode Theme Engine**: Compiles highlights into binary bytecode cache (`cache.bin`) for sub-millisecond loading. Includes Catppuccin, Gruvbox, TokyoNight, Kanagawa, and Rose Pine (`<leader>th`).
 * **Native Statusline**: A lightweight native statusline with zero plugin dependencies and 0.00ms startup impact.
-* **Floating Code Runner**: Run the active file (Python, C, C++, Rust, Go, Bash) in a floating terminal with `<leader>cr`.
 
 ---
 

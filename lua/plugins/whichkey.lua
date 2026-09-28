@@ -16,9 +16,10 @@ return {
     preset = "modern",
     spec = {
       { "<leader>f", group = "Find / Search" },
-      { "<leader>g", group = "Git" },
-      { "<leader>r", group = "Refactor / Rename" },
+      { "<leader>s", group = "Splits" },
+      { "<leader>b", group = "Buffers" },
       { "<leader>c", group = "Code" },
+      { "<leader>g", group = "Git" },
       { "<leader>t", group = "Terminal / Toggle / Theme" },
     },
   },

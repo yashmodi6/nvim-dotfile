@@ -16,8 +16,8 @@ return function(colors, _)
     St_pos_text = { fg = colors.green, bg = colors.lightbg },
     St_lspError = { fg = colors.red, bg = colors.statusline_bg },
     St_lspWarning = { fg = colors.yellow, bg = colors.statusline_bg },
-    St_LspHints = { fg = colors.purple, bg = colors.statusline_bg },
-    St_LspInfo = { fg = colors.green, bg = colors.statusline_bg },
+    St_lspHints = { fg = colors.purple, bg = colors.statusline_bg },
+    St_lspInfo = { fg = colors.green, bg = colors.statusline_bg },
   }
 
   local mode_colors = {

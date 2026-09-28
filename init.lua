@@ -21,7 +21,7 @@ vim.schedule(function()
 end)
 
 -- Deferred file loading (User FilePost)
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePost" }, {
   group = vim.api.nvim_create_augroup("FilePost", { clear = true }),
   callback = function(args)
     local file = vim.api.nvim_buf_get_name(args.buf)

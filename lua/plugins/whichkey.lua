@@ -19,7 +19,7 @@ return {
       { "<leader>g", group = "Git" },
       { "<leader>r", group = "Refactor / Rename" },
       { "<leader>c", group = "Code" },
-      { "<leader>t", group = "Terminal / Theme" },
+      { "<leader>t", group = "Terminal / Toggle / Theme" },
     },
   },
 }

@@ -5,6 +5,8 @@ map("n", ";", ":", { desc = "Enter command mode" })
 map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down (visual line)", expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up (visual line)", expr = true, silent = true })
 
 -- Move lines & selections
 map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move line down" })
@@ -65,6 +67,14 @@ end, { desc = "Theme switcher" })
 map("n", "<leader>td", function()
   Snacks.toggle.dim():toggle()
 end, { desc = "Toggle focus dimming" })
+
+map("n", "<leader>tw", function()
+  Snacks.toggle.option("wrap", { name = "Word Wrap" }):toggle()
+end, { desc = "Toggle word wrap" })
+
+map({ "n", "v" }, "<A-z>", function()
+  Snacks.toggle.option("wrap", { name = "Word Wrap" }):toggle()
+end, { desc = "Toggle word wrap" })
 
 -- Folding
 map("n", "<leader>z", "za", { desc = "Toggle fold" })

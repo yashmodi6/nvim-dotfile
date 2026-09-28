@@ -21,6 +21,8 @@ opt.shiftwidth = 4
 opt.expandtab = true
 opt.softtabstop = 4
 opt.wrap = false
+opt.linebreak = true
+opt.breakindent = true
 
 -- Search
 opt.ignorecase = true
@@ -31,6 +33,7 @@ opt.termguicolors = true
 opt.showmode = false
 opt.ruler = false
 opt.shortmess:append "sI"
+opt.laststatus = 3
 opt.statusline = "%!v:lua.require('statusline').generate()"
 
 opt.fillchars = {

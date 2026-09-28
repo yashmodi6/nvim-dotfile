@@ -51,7 +51,8 @@ local modes = {
 }
 
 local function is_active()
-  return vim.api.nvim_get_current_win() == (vim.g.statusline_winid or 0)
+  local winid = vim.g.statusline_winid
+  return not winid or winid == 0 or vim.api.nvim_get_current_win() == winid
 end
 
 local function stbufnr()

@@ -85,48 +85,6 @@ Cold startup times:
 
 ---
 
-## ⌨️ Common Keybindings
-
-`<leader>` is set to **`<Space>`**.
-
-### Navigation & Files
-| Keymap | Action |
-| :--- | :--- |
-| `;` | Enter command mode (`:`) |
-| `jk` | Exit insert mode to normal mode |
-| `<C-s>` | Save current file |
-| `<C-n>` | Open file explorer |
-| `<leader>x` | Close current buffer |
-| `<S-l>` / `<S-h>` | Next / Previous open buffer |
-| `<C-h/j/k/l>` | Navigate between split windows |
-
-### Search & Pickers
-| Keymap | Action |
-| :--- | :--- |
-| `<leader>ff` | Find files in project |
-| `<leader>fg` | Search text across project (Grep) |
-| `<leader>fb` | List open buffers |
-| `<leader>fr` | Recent files |
-| `<leader>ft` | Find TODO / FIXME / NOTE comments |
-| `<leader>th` | Open color scheme switcher |
-
-### Motion & Code Tools
-| Keymap | Action |
-| :--- | :--- |
-| `s` / `S` | Flash 2-character jump motion |
-| `<leader>cr` | Run current file in floating terminal |
-| `<leader>tt` | Toggle floating terminal |
-| `<leader>td` | Toggle scope focus dimming |
-| `<leader>cv` | Select Python virtual environment |
-| `<leader>z` | Toggle fold under cursor |
-| `zR` / `zM` | Open all folds / Close all folds |
-| `zP` | Peek folded lines preview |
-| `gd` / `gr` | Go to definition / references |
-| `<leader>rn` | Rename symbol |
-| `<leader>ca` | Code actions |
-| `<leader>d` | Show line error details |
-
----
 
 ## 🙏 Acknowledgements
 

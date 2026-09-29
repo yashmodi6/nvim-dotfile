@@ -70,6 +70,17 @@ local function mode()
   return mode_hl .. sep_hl .. "%#St_EmptySpace#" .. sep_r
 end
 
+local devicons_mod
+local function get_file_icon(name)
+  if devicons_mod == nil then
+    local ok, devicons = pcall(require, "nvim-web-devicons")
+    devicons_mod = ok and devicons or false
+  end
+  if devicons_mod then
+    return devicons_mod.get_icon(name)
+  end
+end
+
 local function file()
   local bufnr = stbufnr()
   local path = vim.api.nvim_buf_get_name(bufnr)
@@ -77,11 +88,7 @@ local function file()
   local icon = "󰈚"
 
   if name ~= "Empty" then
-    local ok, devicons = pcall(require, "nvim-web-devicons")
-    if ok then
-      local ft_icon = devicons.get_icon(name)
-      icon = ft_icon or icon
-    end
+    icon = get_file_icon(name) or icon
   end
 
   return "%#St_file# " .. icon .. " " .. name .. " %#St_file_sep#" .. sep_r
@@ -107,14 +114,12 @@ local function lsp_msg()
 end
 
 local function diagnostics()
-  if not rawget(vim, "lsp") then
-    return ""
-  end
   local bufnr = stbufnr()
-  local err = #vim.diagnostic.get(bufnr, { severity = vim.diagnostic.severity.ERROR })
-  local warn = #vim.diagnostic.get(bufnr, { severity = vim.diagnostic.severity.WARN })
-  local hints = #vim.diagnostic.get(bufnr, { severity = vim.diagnostic.severity.HINT })
-  local info = #vim.diagnostic.get(bufnr, { severity = vim.diagnostic.severity.INFO })
+  local counts = vim.diagnostic.count(bufnr)
+  local err = counts[vim.diagnostic.severity.ERROR] or 0
+  local warn = counts[vim.diagnostic.severity.WARN] or 0
+  local hints = counts[vim.diagnostic.severity.HINT] or 0
+  local info = counts[vim.diagnostic.severity.INFO] or 0
 
   local str = ""
   if err > 0 then

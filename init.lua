@@ -16,22 +16,19 @@ vim.opt.rtp:prepend(lazypath)
 require "options"
 require("theme").load()
 
-vim.schedule(function()
-  require "keymaps"
-end)
+require "keymaps"
 
 -- Deferred file loading (User FilePost)
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePost" }, {
   group = vim.api.nvim_create_augroup("FilePost", { clear = true }),
   callback = function(args)
-    local file = vim.api.nvim_buf_get_name(args.buf)
-    local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
+    local file = args.file
+    local buftype = vim.bo[args.buf].buftype
 
     if file ~= "" and buftype ~= "nofile" then
       vim.api.nvim_del_augroup_by_name "FilePost"
       vim.schedule(function()
         vim.api.nvim_exec_autocmds("User", { pattern = "FilePost", modeline = false })
-        vim.api.nvim_exec_autocmds("FileType", {})
         pcall(function()
           require("statusline").autocmds()
         end)

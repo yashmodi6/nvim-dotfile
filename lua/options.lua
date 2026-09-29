@@ -69,3 +69,4 @@ opt.undofile = true
 opt.swapfile = false
 opt.mouse = "a"
 opt.confirm = true
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }

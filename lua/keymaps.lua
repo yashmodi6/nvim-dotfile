@@ -183,3 +183,22 @@ end, { desc = "Next reference" })
 map("n", "[[", function()
   Snacks.words.jump(-vim.v.count1)
 end, { desc = "Previous reference" })
+
+-- -----------------------------------------------------------------------------
+-- Session (<leader>q)
+-- -----------------------------------------------------------------------------
+map("n", "<leader>qs", function()
+  require("persistence").load()
+end, { desc = "Restore session" })
+
+map("n", "<leader>qS", function()
+  require("persistence").select()
+end, { desc = "Select session" })
+
+map("n", "<leader>ql", function()
+  require("persistence").load { last = true }
+end, { desc = "Restore last session" })
+
+map("n", "<leader>qd", function()
+  require("persistence").stop()
+end, { desc = "Don't save current session" })

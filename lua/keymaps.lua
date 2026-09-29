@@ -7,21 +7,13 @@ map("n", ";", ":", { desc = "Enter command mode" })
 map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
-map({ "n", "v" }, "<C-a>", function()
+map("n", "<C-a>", function()
   local view = vim.fn.winsaveview()
   vim.cmd "%y+"
   vim.fn.winrestview(view)
 end, { desc = "Copy active buffer" })
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down (visual line)", expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up (visual line)", expr = true, silent = true })
-
--- -----------------------------------------------------------------------------
--- Line & Selection Movement
--- -----------------------------------------------------------------------------
-map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move line down" })
-map("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move line up" })
-map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move selection down" })
-map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move selection up" })
 
 -- -----------------------------------------------------------------------------
 -- Window Navigation & Resizing
@@ -55,13 +47,7 @@ map("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Next buffer" })
 map("n", "<leader><Tab>", "<cmd>e #<CR>", { desc = "Switch to alternate buffer" })
 map("n", "<leader>bb", "<cmd>e #<CR>", { desc = "Switch to alternate buffer" })
-map("n", "<leader>bp", function()
-  Snacks.picker.buffers()
-end, { desc = "Pick buffer" })
 map("n", "<leader>x", function()
-  Snacks.bufdelete()
-end, { desc = "Close current buffer" })
-map("n", "<leader>bd", function()
   Snacks.bufdelete()
 end, { desc = "Close current buffer" })
 map("n", "<leader>bo", function()

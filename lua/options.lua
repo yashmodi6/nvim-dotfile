@@ -25,6 +25,7 @@ opt.softtabstop = 4
 opt.wrap = false
 opt.linebreak = true
 opt.breakindent = true
+opt.formatoptions:append "r"
 
 -- Search
 opt.ignorecase = true

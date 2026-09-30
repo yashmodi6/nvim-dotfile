@@ -18,6 +18,14 @@ require("theme").load()
 
 require "keymaps"
 
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
+  callback = function()
+    vim.hl.on_yank { higroup = "IncSearch", timeout = 200 }
+  end,
+})
+
 -- Deferred file loading (User FilePost)
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePost" }, {
   group = vim.api.nvim_create_augroup("FilePost", { clear = true }),

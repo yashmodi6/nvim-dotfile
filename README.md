@@ -59,11 +59,14 @@ Cold startup times:
 * **[flash.nvim](https://github.com/folke/flash.nvim)**
 * **[venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim)**
 * **[smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)**
+* **[persistence.nvim](https://github.com/folke/persistence.nvim)**
 * **[mini.nvim](https://github.com/echasnovski/mini.nvim)**
   * `mini.icons`
   * `mini.pairs`
   * `mini.surround`
   * `mini.ai`
+  * `mini.splitjoin`
+  * `mini.move`
 * **[snacks.nvim](https://github.com/folke/snacks.nvim)**
   * `snacks.picker`
   * `snacks.explorer`

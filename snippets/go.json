@@ -1,0 +1,17 @@
+{
+  "Go Main Boilerplate": {
+    "prefix": ["boilerplate", "boiler"],
+    "body": [
+      "package main",
+      "",
+      "import (",
+      "\t\"fmt\"",
+      ")",
+      "",
+      "func main() {",
+      "\t${0:fmt.Println(\"Hello, World!\")}",
+      "}"
+    ],
+    "description": "Go main package and entrypoint boilerplate"
+  }
+}

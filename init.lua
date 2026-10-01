@@ -17,33 +17,7 @@ require "options"
 require("theme").load()
 
 require "keymaps"
-
--- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-  group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
-  callback = function()
-    vim.hl.on_yank { higroup = "IncSearch", timeout = 200 }
-  end,
-})
-
--- Deferred file loading (User FilePost)
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePost" }, {
-  group = vim.api.nvim_create_augroup("FilePost", { clear = true }),
-  callback = function(args)
-    local file = args.file
-    local buftype = vim.bo[args.buf].buftype
-
-    if file ~= "" and buftype ~= "nofile" then
-      vim.api.nvim_del_augroup_by_name "FilePost"
-      vim.schedule(function()
-        vim.api.nvim_exec_autocmds("User", { pattern = "FilePost", modeline = false })
-        pcall(function()
-          require("statusline").autocmds()
-        end)
-      end)
-    end
-  end,
-})
+require "autocmds"
 
 -- Load all plugin specs from lua/plugins/
 require("lazy").setup {

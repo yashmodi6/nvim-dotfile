@@ -34,6 +34,6 @@ return {
       },
     })
 
-    vim.lsp.enable { "basedpyright", "ruff" }
+    vim.lsp.enable { "basedpyright", "ruff", "gopls" }
   end,
 }

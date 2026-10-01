@@ -1,22 +1,18 @@
+local signs = {
+  add = { text = "▎" },
+  change = { text = "▎" },
+  delete = { text = "" },
+  topdelete = { text = "" },
+  changedelete = { text = "▎" },
+  untracked = { text = "▎" },
+}
+
 return {
   "lewis6991/gitsigns.nvim",
   event = "User FilePost",
   cmd = { "Gitsigns" },
   opts = {
-    signs = {
-      add = { text = "▎" },
-      change = { text = "▎" },
-      delete = { text = "" },
-      topdelete = { text = "" },
-      changedelete = { text = "▎" },
-      untracked = { text = "▎" },
-    },
-    signs_staged = {
-      add = { text = "▎" },
-      change = { text = "▎" },
-      delete = { text = "" },
-      topdelete = { text = "" },
-      changedelete = { text = "▎" },
-    },
+    signs = signs,
+    signs_staged = signs,
   },
 }

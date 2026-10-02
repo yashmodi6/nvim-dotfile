@@ -137,6 +137,8 @@ map("n", "<leader>cd", function()
   vim.diagnostic.open_float()
 end, { desc = "Show line error details" })
 
+map("n", "<leader>cv", "<cmd>VenvSelect<CR>", { desc = "Select Virtual Environment" })
+
 -- -----------------------------------------------------------------------------
 -- Folding (UFO)
 -- -----------------------------------------------------------------------------

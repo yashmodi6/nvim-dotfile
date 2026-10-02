@@ -10,8 +10,6 @@ return {
     { "`", desc = "Mark keys" },
     { "g", desc = "Goto keys" },
     { "z", desc = "Fold keys" },
-    { "]", desc = "Next reference" },
-    { "[", desc = "Prev reference" },
     {
       "<leader>?",
       function()

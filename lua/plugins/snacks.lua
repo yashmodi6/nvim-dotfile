@@ -6,11 +6,9 @@ return {
     vim.g.snacks_animate = false
   end,
   opts = {
-    animate = { enabled = false },
     scroll = { enabled = false },
     bigfile = { enabled = true },
     dim = {
-      animate = { enabled = false },
       scope = {
         min_size = 5,
         max_size = 40,
@@ -52,7 +50,6 @@ return {
     },
     indent = {
       enabled = true,
-      animate = { enabled = false },
     },
     words = { enabled = true },
     terminal = {

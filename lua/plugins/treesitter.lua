@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  lazy = false,
+  event = "User FilePost",
+  cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
   build = ":TSUpdate",
   config = function()
     local ts = require "nvim-treesitter"

@@ -17,6 +17,21 @@ return {
     },
     picker = {
       enabled = true,
+      sources = {
+        colorschemes = {
+          transform = function(item)
+            if not item.file or not item.text then
+              return false
+            end
+            if item.file:find(vim.env.VIMRUNTIME, 1, true) or item.file:find("mini.nvim", 1, true) then
+              return false
+            end
+            if item.text:match "^catppuccin%-" then
+              return false
+            end
+          end,
+        },
+      },
       icons = {
         git = {
           enabled = true,

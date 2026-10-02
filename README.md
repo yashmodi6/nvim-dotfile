@@ -25,7 +25,7 @@
   </a>
 </p>
 
-A lightweight, modern, and blazingly fast personal Neovim configuration.
+A personal Neovim configuration built for speed and simplicity.
 
 ---
 
@@ -40,57 +40,40 @@ A lightweight, modern, and blazingly fast personal Neovim configuration.
 ## ⚡ Performance
 
 Cold startup times:
-* **~25 ms** average on computer
-* **~35 ms** average on phone (Android / Termux)
+* **~20–25 ms** on computer
+* **~35–40 ms** on phone (Android / Termux)
 
 ---
 
 ## 📦 Plugins Used
 
-* **[lazy.nvim](https://github.com/folke/lazy.nvim)**
-* **[blink.cmp](https://github.com/saghen/blink.cmp)**
-* **[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)**
-* **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)**
-* **[conform.nvim](https://github.com/stevearc/conform.nvim)**
-* **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)**
-* **[nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)** & **[promise-async](https://github.com/kevinhwang91/promise-async)**
-* **[render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)**
-* **[which-key.nvim](https://github.com/folke/which-key.nvim)**
-* **[flash.nvim](https://github.com/folke/flash.nvim)**
-* **[venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim)**
-* **[smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)**
-* **[persistence.nvim](https://github.com/folke/persistence.nvim)**
-* **[mini.nvim](https://github.com/echasnovski/mini.nvim)**
-  * `mini.icons`
-  * `mini.pairs`
-  * `mini.surround`
-  * `mini.ai`
-  * `mini.splitjoin`
-  * `mini.move`
-* **[snacks.nvim](https://github.com/folke/snacks.nvim)**
-  * `snacks.picker`
-  * `snacks.explorer`
-  * `snacks.dashboard`
-  * `snacks.terminal`
-  * `snacks.indent`
-  * `snacks.dim`
-  * `snacks.words`
-  * `snacks.statuscolumn`
-  * `snacks.bigfile`
+### Theme
+* **Built-in Catppuccin** – Custom Mocha palette and tailored plugin integrations
+
+### Core & UI
+* **[lazy.nvim](https://github.com/folke/lazy.nvim)** – Plugin manager
+* **[snacks.nvim](https://github.com/folke/snacks.nvim)** – Dashboard, file explorer, picker, terminal, statuscolumn, words, and indent guides
+* **[which-key.nvim](https://github.com/folke/which-key.nvim)** – Keymap guide
+* **[smear-cursor.nvim](https://github.com/sphamba/smear-cursor.nvim)** – Cursor animation
+* **[render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)** – Markdown preview in buffer
+
+### Coding & Editing
+* **[blink.cmp](https://github.com/saghen/blink.cmp)** – Autocompletion
+* **[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)** – LSP setup
+* **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** – Syntax highlighting
+* **[conform.nvim](https://github.com/stevearc/conform.nvim)** – Code formatting
+* **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)** – Git status and hunks
+* **[nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)** & **[promise-async](https://github.com/kevinhwang91/promise-async)** – Code folding
+* **[flash.nvim](https://github.com/folke/flash.nvim)** – Jump navigation
+* **[persistence.nvim](https://github.com/folke/persistence.nvim)** – Resuming last coding session
+* **[venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim)** – Python virtual environment selector
+* **[mini.nvim](https://github.com/echasnovski/mini.nvim)** – Pairs, surround, textobjects, splitjoin, and move
 
 ---
-
-## 🛠️ Custom Features
-
-* **Bytecode Theme Engine**: Compiles highlights into binary bytecode cache (`cache.bin`) for sub-millisecond loading. Includes Catppuccin, Gruvbox, TokyoNight, Kanagawa, and Rose Pine (`<leader>th`).
-* **Native Statusline**: A lightweight native statusline with zero plugin dependencies and 0.00ms startup impact.
-
----
-
 
 ## 🙏 Acknowledgements
 
-* **[NvChad](https://github.com/NvChad/NvChad)** – Some components and design concepts were adapted to suit our specific requirements.
+* **[NvChad](https://github.com/NvChad/NvChad)** – Statusline aesthetics and design inspirations.
 
 ---
 

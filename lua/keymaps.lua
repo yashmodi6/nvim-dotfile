@@ -98,7 +98,7 @@ end, { desc = "Search TODO comments" })
 -- UI Toggles & Theme (<leader>t)
 -- -----------------------------------------------------------------------------
 map("n", "<leader>th", function()
-  require("theme").select()
+  Snacks.picker.colorschemes()
 end, { desc = "Theme switcher" })
 
 map("n", "<leader>td", function()

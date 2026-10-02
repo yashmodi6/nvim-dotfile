@@ -1,7 +1,7 @@
 return {
   "echasnovski/mini.nvim",
   version = false,
-  event = "VeryLazy",
+  event = "User FilePost",
   init = function()
     package.preload["nvim-web-devicons"] = function()
       require("mini.icons").setup()

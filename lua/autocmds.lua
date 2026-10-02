@@ -39,3 +39,28 @@ vim.api.nvim_create_autocmd("FileType", {
     pcall(vim.treesitter.start, args.buf)
   end,
 })
+
+-- Disable italics in Termux
+if vim.env.TERMUX_VERSION or vim.fn.has "termux" == 1 then
+  vim.api.nvim_create_autocmd("ColorScheme", {
+    desc = "Disable italics across all highlight groups in Termux",
+    group = vim.api.nvim_create_augroup("DisableItalicsTermux", { clear = true }),
+    callback = function()
+      local hls = vim.api.nvim_get_hl(0, {})
+      for group, opts in pairs(hls) do
+        local changed = false
+        if opts.italic then
+          opts.italic = false
+          changed = true
+        end
+        if opts.cterm and opts.cterm.italic then
+          opts.cterm.italic = false
+          changed = true
+        end
+        if changed then
+          vim.api.nvim_set_hl(0, group, opts)
+        end
+      end
+    end,
+  })
+end

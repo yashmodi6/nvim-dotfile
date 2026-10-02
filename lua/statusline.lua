@@ -52,11 +52,15 @@ local modes = {
 
 local function is_active()
   local winid = vim.g.statusline_winid
-  return not winid or winid == 0 or vim.api.nvim_get_current_win() == winid
+  return not winid or winid == 0 or not vim.api.nvim_win_is_valid(winid) or vim.api.nvim_get_current_win() == winid
 end
 
 local function stbufnr()
-  return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
+  local winid = vim.g.statusline_winid
+  if winid and winid ~= 0 and vim.api.nvim_win_is_valid(winid) then
+    return vim.api.nvim_win_get_buf(winid)
+  end
+  return vim.api.nvim_get_current_buf()
 end
 
 local function mode()

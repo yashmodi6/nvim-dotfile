@@ -14,6 +14,8 @@ map("n", "<C-a>", function()
 end, { desc = "Copy active buffer" })
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down (visual line)", expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up (visual line)", expr = true, silent = true })
+map({ "n", "x" }, "d", '"_d', { desc = "Delete without overwriting clipboard" })
+map({ "n", "x" }, "D", '"_D', { desc = "Delete to end of line without overwriting clipboard" })
 
 -- -----------------------------------------------------------------------------
 -- Window Navigation & Resizing
@@ -108,6 +110,14 @@ end, { desc = "Toggle focus dimming" })
 map("n", "<leader>tw", function()
   Snacks.toggle.option("wrap", { name = "Word Wrap" }):toggle()
 end, { desc = "Toggle word wrap" })
+
+map("n", "<leader>tl", function()
+  Snacks.toggle.line_number():toggle()
+end, { desc = "Toggle line numbers" })
+
+map("n", "<leader>tr", function()
+  Snacks.toggle.option("relativenumber", { name = "Relative Number" }):toggle()
+end, { desc = "Toggle relative line numbers" })
 
 -- -----------------------------------------------------------------------------
 -- Code & LSP (<leader>c)

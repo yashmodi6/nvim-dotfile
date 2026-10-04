@@ -1,1 +1,1 @@
-require("theme").set_theme "catppuccin"
+require("theme").load "catppuccin"

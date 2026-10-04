@@ -26,9 +26,6 @@ return {
             if item.file:find(vim.env.VIMRUNTIME, 1, true) or item.file:find("mini.nvim", 1, true) then
               return false
             end
-            if item.text:match "^catppuccin%-" then
-              return false
-            end
           end,
         },
       },

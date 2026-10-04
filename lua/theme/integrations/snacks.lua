@@ -8,6 +8,8 @@ return function(colors, _)
     SnacksPickerInputBorder = { fg = colors.blue },
     SnacksPickerSelected = { bg = colors.one_bg2 },
     SnacksPickerDir = { fg = colors.light_grey },
+    SnacksPickerDirectory = { fg = colors.folder_bg },
+    SnacksPickerTree = { fg = colors.line },
     SnacksPickerGitStatusAdded = { fg = colors.green },
     SnacksPickerGitStatusModified = { fg = colors.yellow },
     SnacksPickerGitStatusDeleted = { fg = colors.red },

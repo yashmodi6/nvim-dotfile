@@ -70,16 +70,12 @@ local function get_file_icon(name)
   if _G.MiniIcons then
     return _G.MiniIcons.get("file", name)
   end
-  local ok, devicons = pcall(require, "nvim-web-devicons")
-  if ok then
-    return devicons.get_icon(name)
-  end
 end
 
 local function file()
   local bufnr = stbufnr()
   local path = vim.api.nvim_buf_get_name(bufnr)
-  local name = (path == "" and "Empty") or path:match "([^/\\]+)[/\\]*$"
+  local name = (path == "" and "Empty") or path:match "([^/\\]+)[/\\]*$" or path
   local icon = "󰈚"
 
   if name ~= "Empty" then
@@ -105,7 +101,10 @@ local function git()
 end
 
 local function lsp_msg()
-  return (vim.o.columns < 120 and "") or M.state.lsp_msg
+  if vim.o.columns < 120 then
+    return ""
+  end
+  return M.state.lsp_msg
 end
 
 local function diagnostics()
@@ -145,8 +144,10 @@ local function lsp()
   for _, client in ipairs(clients) do
     table.insert(names, client.name)
   end
-  return (vim.o.columns > 100 and ("%#St_Lsp#   LSP ~ " .. table.concat(names, ", ") .. " "))
-    or "%#St_Lsp#   LSP "
+  if vim.o.columns > 100 then
+    return "%#St_Lsp#   LSP ~ " .. table.concat(names, ", ") .. " "
+  end
+  return "%#St_Lsp#   LSP "
 end
 
 local cached_cwd_name = ""
@@ -162,8 +163,10 @@ vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
 })
 
 local function cwd()
-  return (vim.o.columns > 85 and ("%#St_cwd_sep#" .. sep_l .. "%#St_cwd_icon#󰉋 %#St_cwd_text# " .. cached_cwd_name .. " "))
-    or ""
+  if vim.o.columns <= 85 then
+    return ""
+  end
+  return "%#St_cwd_sep#" .. sep_l .. "%#St_cwd_icon#󰉋 %#St_cwd_text# " .. cached_cwd_name .. " "
 end
 
 local function cursor()

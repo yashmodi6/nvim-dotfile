@@ -14,10 +14,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require "options"
-require("theme").load()
-
-require "keymaps"
 require "autocmds"
+require("theme").load()
+require "keymaps"
 
 -- Load all plugin specs from lua/plugins/
 require("lazy").setup {

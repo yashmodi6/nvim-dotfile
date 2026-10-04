@@ -1,13 +1,10 @@
 return {
   "echasnovski/mini.nvim",
   version = false,
-  event = "User FilePost",
+  event = { "BufReadPost", "BufNewFile" },
   init = function()
-    package.preload["nvim-web-devicons"] = function()
-      require("mini.icons").setup()
-      require("mini.icons").mock_nvim_web_devicons()
-      return package.loaded["nvim-web-devicons"]
-    end
+    require("mini.icons").setup()
+    require("mini.icons").mock_nvim_web_devicons()
   end,
   config = function()
     require("mini.pairs").setup()

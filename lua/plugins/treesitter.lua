@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = "User FilePost",
+  event = { "BufReadPost", "BufNewFile" },
   cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
   build = ":TSUpdate",
   config = function()

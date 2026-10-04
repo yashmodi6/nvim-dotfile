@@ -1,7 +1,6 @@
 local M = {}
 
 function M.load()
-  vim.o.termguicolors = true
   vim.o.background = "dark"
   vim.g.colors_name = "catppuccin"
 
@@ -11,6 +10,8 @@ function M.load()
   for group, opts in pairs(hl) do
     vim.api.nvim_set_hl(0, group, opts)
   end
+
+  vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
 end
 
 M.set_theme = M.load

@@ -1,7 +1,7 @@
 return {
   "saghen/blink.cmp",
   version = "1.*",
-  event = "User FilePost",
+  event = { "InsertEnter", "CmdlineEnter" },
   opts = {
     appearance = { nerd_font_variant = "normal" },
     fuzzy = { implementation = "prefer_rust" },

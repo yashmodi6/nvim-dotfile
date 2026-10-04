@@ -122,11 +122,11 @@ end, { desc = "Toggle relative line numbers" })
 -- Code & LSP (<leader>c)
 -- -----------------------------------------------------------------------------
 map("n", "gd", function()
-  vim.lsp.buf.definition()
+  Snacks.picker.lsp_definitions()
 end, { desc = "Go to definition" })
 
 map("n", "gr", function()
-  vim.lsp.buf.references()
+  Snacks.picker.lsp_references()
 end, { desc = "Go to references" })
 
 map("n", "<leader>ca", function()

@@ -31,7 +31,7 @@ local modes = {
 
   ["R"] = { "REPLACE", "Replace" },
   ["Rc"] = { "REPLACE (Rc)", "Replace" },
-  ["Rx"] = { "REPLACEa (Rx)", "Replace" },
+  ["Rx"] = { "REPLACE (Rx)", "Replace" },
   ["Rv"] = { "V-REPLACE", "Replace" },
   ["Rvc"] = { "V-REPLACE (Rvc)", "Replace" },
   ["Rvx"] = { "V-REPLACE (Rvx)", "Replace" },
@@ -50,11 +50,6 @@ local modes = {
   ["!"] = { "SHELL", "Terminal" },
 }
 
-local function is_active()
-  local winid = vim.g.statusline_winid
-  return not winid or winid == 0 or not vim.api.nvim_win_is_valid(winid) or vim.api.nvim_get_current_win() == winid
-end
-
 local function stbufnr()
   local winid = vim.g.statusline_winid
   if winid and winid ~= 0 and vim.api.nvim_win_is_valid(winid) then
@@ -64,9 +59,6 @@ local function stbufnr()
 end
 
 local function mode()
-  if not is_active() then
-    return ""
-  end
   local m = vim.api.nvim_get_mode().mode
   local current = modes[m] or { "NORMAL", "Normal" }
   local mode_hl = "%#St_" .. current[2] .. "Mode#  " .. current[1] .. " "
@@ -74,14 +66,13 @@ local function mode()
   return mode_hl .. sep_hl .. "%#St_EmptySpace#" .. sep_r
 end
 
-local devicons_mod
 local function get_file_icon(name)
-  if devicons_mod == nil then
-    local ok, devicons = pcall(require, "nvim-web-devicons")
-    devicons_mod = ok and devicons or false
+  if _G.MiniIcons then
+    return _G.MiniIcons.get("file", name)
   end
-  if devicons_mod then
-    return devicons_mod.get_icon(name)
+  local ok, devicons = pcall(require, "nvim-web-devicons")
+  if ok then
+    return devicons.get_icon(name)
   end
 end
 
@@ -142,7 +133,7 @@ local function diagnostics()
 end
 
 local function lsp()
-  if not rawget(vim, "lsp") then
+  if not (vim.lsp and vim.lsp.get_clients) then
     return ""
   end
   local bufnr = stbufnr()
@@ -158,10 +149,20 @@ local function lsp()
     or "%#St_Lsp#   LSP "
 end
 
-local function cwd()
+local cached_cwd_name = ""
+local function update_cwd()
   local dir = vim.uv.cwd() or ""
-  local name = dir:match "([^/\\]+)[/\\]*$" or dir
-  return (vim.o.columns > 85 and ("%#St_cwd_sep#" .. sep_l .. "%#St_cwd_icon#󰉋 %#St_cwd_text# " .. name .. " "))
+  cached_cwd_name = dir:match "([^/\\]+)[/\\]*$" or dir
+end
+update_cwd()
+
+vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
+  group = vim.api.nvim_create_augroup("StatuslineCwd", { clear = true }),
+  callback = update_cwd,
+})
+
+local function cwd()
+  return (vim.o.columns > 85 and ("%#St_cwd_sep#" .. sep_l .. "%#St_cwd_icon#󰉋 %#St_cwd_text# " .. cached_cwd_name .. " "))
     or ""
 end
 
@@ -193,7 +194,9 @@ end
 local spinners = { "", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥", "" }
 
 function M.autocmds()
+  local group = vim.api.nvim_create_augroup("StatuslineLspProgress", { clear = true })
   vim.api.nvim_create_autocmd("LspProgress", {
+    group = group,
     pattern = { "begin", "report", "end" },
     callback = function(args)
       if not args.data or not args.data.params then
@@ -215,5 +218,7 @@ function M.autocmds()
     end,
   })
 end
+
+M.autocmds()
 
 return M

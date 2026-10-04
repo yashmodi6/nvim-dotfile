@@ -3,13 +3,6 @@ return {
   event = "VeryLazy",
   cmd = "WhichKey",
   keys = {
-    { "<leader>", desc = "Leader keys" },
-    { "<C-w>", desc = "Window keys" },
-    { '"', desc = "Register keys" },
-    { "'", desc = "Mark keys" },
-    { "`", desc = "Mark keys" },
-    { "g", desc = "Goto keys" },
-    { "z", desc = "Fold keys" },
     {
       "<leader>?",
       function()

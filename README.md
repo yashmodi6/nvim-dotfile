@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="preview/Screenshot_20260925_170438_Termux.jpg" alt="YovoVim Preview" width="100%">
+  <img src="https://github.com/user-attachments/assets/64f36121-ee35-40ed-a8dc-0d98a5af2917" alt="YovoVim Logo Preview" width="100%">
 </div>
 
 # YovoVim
@@ -34,7 +34,19 @@ A personal Neovim configuration built for speed and simplicity.
 ## 📸 Preview
 
 <div align="center">
-  <img src="preview/dashboard_preview.jpg" alt="Dashboard Preview" width="100%">
+  <img src="https://github.com/user-attachments/assets/59b04c8e-0c5e-4cce-8e5b-47e6e431170a" alt="Dashboard Preview" width="100%">
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/8a40b10e-61d8-4b1c-b106-76dfe099e6a7" alt="Editor and Explorer Preview" width="100%">
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/164b667c-08d8-41e1-9c5f-867506cb0b3c" alt="Snacks Finder Preview" width="100%">
+</div>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/4377f5ba-5544-44cb-91f7-d32147208fd5" alt="Floating Terminal Preview" width="100%">
 </div>
 
 ## ⚡ Performance
@@ -48,7 +60,7 @@ Cold startup times:
 ## 📦 Plugins Used
 
 ### Theme
-* **Built-in Catppuccin** – Custom Mocha palette and tailored plugin integrations
+* **Built-in Themes** – Curated base46 themes (`catppuccin`, `gruvbox`, `github_dark`, `vscode_dark`, `tokyodark`, `tokyonight`) with tailored plugin integrations
 
 ### Core & UI
 * **[lazy.nvim](https://github.com/folke/lazy.nvim)** – Plugin manager

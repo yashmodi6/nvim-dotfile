@@ -4,7 +4,6 @@ local map = vim.keymap.set
 -- General & Navigation
 -- -----------------------------------------------------------------------------
 map("n", ";", ":", { desc = "Enter command mode" })
-map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 map("n", "<C-a>", function()

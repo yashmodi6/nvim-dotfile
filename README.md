@@ -1,8 +1,8 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/64f36121-ee35-40ed-a8dc-0d98a5af2917" alt="YovoVim Logo Preview" width="100%">
+  <img src="https://github.com/user-attachments/assets/fa994106-f79a-40b5-b2f4-9251655452fc" alt="YovoVim Logo Preview" width="100%">
 </div>
 
-# YovoVim
+---
 
 <p align="center">
   <a href="https://neovim.io">

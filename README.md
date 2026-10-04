@@ -79,7 +79,7 @@ Cold startup times:
 * **[flash.nvim](https://github.com/folke/flash.nvim)** – Jump navigation
 * **[persistence.nvim](https://github.com/folke/persistence.nvim)** – Resuming last coding session
 * **[venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim)** – Python virtual environment selector
-* **[mini.nvim](https://github.com/echasnovski/mini.nvim)** – Pairs, surround, textobjects, splitjoin, and move
+* **[mini.nvim](https://github.com/echasnovski/mini.nvim)** – Pairs, surround, textobjects, splitjoin, move, and hipatterns (color preview)
 
 ---
 
